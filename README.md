@@ -1,2 +1,2 @@
 # PreEntrega1-Tunas
-# PreEntrega1-Tunas
+Proyecto del curso de JavaScript para coderhouse.
