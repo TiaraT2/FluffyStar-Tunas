@@ -1,0 +1,13 @@
+{
+  "name": "proyecto-java",
+  "version": "1.0.0",
+  "description": "Proyecto del curso de JavaScript para coderhouse.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "scss" : "sass --watch ./style/scss/main.scss ./style/css/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

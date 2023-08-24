@@ -1,80 +1,129 @@
-//Mercancia
-const precioPelucheZorroNegroGrande = 5000;
-const precioPelucheZorroNegroMediano = 3125;
-const precioPelucheZorroBlancoGrande = 5000;
-const precioPelucheZorroBlancoMediano = 3125;
-const PrecioPelucheCerdoRosaGrande = 3679;
-const precioPelucheCuervoNegroMediano = 2910;
-const precioPelucheArdillaMediana = 2739;
-const precioPelucheDragonChinoMediano = 4571;
-
 //Descuento e impuesto.
-const porcentajeDeDescuento = 8;
+const porcentajeDeDescuento = 5;
 const porcentajeDeImpuesto = 12;
 
-function calcularDescuento(precio) {
-  return precio * (porcentajeDeDescuento / 100);
+//Mercancia
+class Productos {
+  constructor(nombre, tamaño, codigo, cantidad, descuento, precio) {
+    this.nombre = nombre;
+    this.tamaño = tamaño;
+    this.codigo = codigo;
+    this.cantidad = cantidad;
+    this.descuento = descuento;
+    this.precio = precio;
+
+    this.aplicarDescuento = () => {
+      if (this.descuento) {
+        this.precio = this.precio - (this.precio * porcentajeDeDescuento) / 100;
+      }
+    };
+  }
 }
 
-function calcularImpuesto(precio) {
-  return precio * (porcentajeDeImpuesto / 100);
-}
+const productosArray = [
+  new Productos("Zorro negro G", "Grande", 205, 24, false, 5000),
+  new Productos("Zorro negro M", "Mediano", 105, 17, true, 3125),
+  new Productos("Zorro blanco G", "Grande", 204, 14, true, 5000),
+  new Productos("Zorro blanco M", "Mediano", 104, 21, false, 3125),
+  new Productos("Cerdo rosa G", "Grande", 123, 10, false, 3679),
+  new Productos("Cuervo negro M", "Mediano", 301, 15, false, 2910),
+  new Productos("Ardilla M", "Mediano", 401, 20, true, 2739),
+  new Productos("Dragón chino M", "Mediano", 601, 12, false, 4571),
+];
 
 //Cuentas para el valor total.
+const calcularValorTotal = (producto) => {
+  const impuesto = producto.precio * (porcentajeDeImpuesto / 100);
+  const descuento = producto.aplicarDescuento()
+    ? calcularDescuento(producto.precio)
+    : 0;
+  const valorTotal = producto.precio + impuesto - descuento;
+  return Math.round(valorTotal);
+};
 
-function calcularValorTotal(precio) {
-  const impuesto = calcularImpuesto(precio);
-  const Descuento = calcularDescuento(precio);
-  const valorTotal = precio + impuesto - Descuento;
-  return valorTotal;
+//Utilización de map y join.
+const nombresProductos = productosArray.map(
+  (producto, index) => `${index + 1}. ${producto.nombre}`
+);
+const productosDisponibles = nombresProductos.join("\n");
+
+// Filtrar productos con descuento
+const productosConDescuento = productosArray.filter(
+  (producto) => producto.descuento
+);
+const nombresProductosConDescuento = productosConDescuento.map(
+  (producto, index) => `${index + 1}. ${producto.nombre}`
+);
+const productosConDescuentoDisponibles =
+  nombresProductosConDescuento.join("\n");
+if (productosConDescuento.length > 0) {
+  alert(
+    "Productos con descuento disponibles:\n" + productosConDescuentoDisponibles
+  );
+} else {
+  alert("No hay productos con descuento disponibles.");
 }
 
 let valida = false;
 
 while (!valida) {
   alert(
-    "Bienvenido a mi tienda de peluches. En esta ocasión contamos con un reducido stock, sin embargo, si desea seguir viendo los que hay en stock; te damos la más cálida bienvenida."
+    "Bienvenido a mi tienda de peluches. En esta ocasión contamos con un reducido stock, sin embargo, si desea seguir viendo los que hay en stock; te damos la más cálida bienvenida. \n Antes de continua tome en cuenta que los tamaños varian: G es referente a grande y M es referente a mediano. "
   );
   seleccion = parseInt(
     prompt(
-      "Los productos dados a continuación son los que están en stock: \n 1.Un peluche de zorro negro tamaño grande \n 2.Un peluche de zorro negro tamaño mediano \n 3.Un peluche de zorro blanco tamañano grande \n 4.Un peluche de zorro blanco tamaño mediano \n 5.Un peluche de cerdo tamaño grande \n 6.Un peluche de un cuervo tamaño mediano \n 7.Un peluche de ardilla tamaño mediano \n 8.Un peluche de dragon chino tamaño mediano \n Basado en el peluche que usted eligió, por favor, coloque el número correspondiente."
+      "En esta ocasión contamos con un reducido stock de: \n" +
+        productosDisponibles
     )
   );
-  if (seleccion == 1) {
-    valorTotal = calcularValorTotal(precioPelucheZorroNegroGrande);
-    alert("El valor del peluche es un total de $" + valorTotal);
-     valida = true;
-  } else if (seleccion == 2) {
-    valorTotal = calcularValorTotal(precioPelucheZorroNegroMediano);
-    alert("El valor del peluche es un total de $" + valorTotal);
+
+  const mostrarInformacionProducto = (producto) => {
+    for (const propiedad in producto) {
+      if (propiedad === "descuento") {
+        alert("Tiene descuento: " + (producto[propiedad] ? "Sí" : "No"));
+      } else if (propiedad !== "aplicarDescuento") {
+        alert(propiedad + ": " + producto[propiedad]);
+      }
+    }
+  };
+
+  if (seleccion >= 1 && seleccion <= productosArray.length) {
+    const productoSeleccionado = productosArray[seleccion - 1];
+    const valorTotal = calcularValorTotal(productoSeleccionado);
+    alert("El valor del peluche es un total de $" + valorTotal.toFixed());
+
+    const deseaVerDetalle = prompt(
+      "¿Desea ver la información detallada del producto? (Sí/No)"
+    ).toLowerCase();
+
+    if (deseaVerDetalle === "sí" || deseaVerDetalle === "si") {
+      mostrarInformacionProducto(productoSeleccionado);
+    }
+
     valida = true;
-  } else if (seleccion == 3) {
-    valorTotal = calcularValorTotal(precioPelucheZorroBlancoGrande);
-    alert("El valor del peluche es un total de $" + valorTotal);
-     valida = true;
-  } else if (seleccion == 4) {
-    valorTotal = calcularValorTotal(precioPelucheZorroBlancoMediano);
-    alert("El valor del peluche es un total de $" + valorTotal);
-     valida = true;
-  } else if (seleccion == 5) {
-    valorTotal = calcularValorTotal(PrecioPelucheCerdoRosaGrande);
-    alert("El valor del peluche es un total de $" + valorTotal.toFixed());
-     valida = true;
-  } else if (seleccion == 6) {
-    valorTotal = calcularValorTotal(precioPelucheCuervoNegroMediano);
-    alert("El valor del peluche es un total de $" + valorTotal.toFixed());
-     valida = true;
-  } else if (seleccion == 7) {
-    valorTotal = calcularValorTotal(precioPelucheArdillaMediana);
-    alert("El valor del peluche es un total de $" + valorTotal.toFixed());
-     valida = true;
-  } else if (seleccion == 8) {
-    valorTotal = calcularValorTotal(precioPelucheDragonChinoMediano);
-    alert("El valor del peluche es un total de $" + valorTotal.toFixed());
-     valida = true;
   } else {
     alert(
       "Comprendo si ninguno es de tu agrado, no obstante puede esperar a que notifiquemos que los nuevos peluches entren en stock. \n Gracias, tenga buen día!!"
     );
+    valida = true;
+    break;
   }
 }
+
+// Mostrar la fecha y hora actual
+const fechaActual = new Date();
+const opcionesDeFormato = {
+  weekday: "long",
+  year: "numeric",
+  month: "numeric",
+  day: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+};
+const fechaFormateada = fechaActual.toLocaleDateString(
+  "es-ES",
+  opcionesDeFormato
+);
+
+alert("Fecha y hora del momento de la compra: " + fechaFormateada);
