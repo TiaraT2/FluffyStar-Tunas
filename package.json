@@ -4,10 +4,13 @@
   "description": "Proyecto del curso de JavaScript para coderhouse.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1", 
-    "scss" : "sass --watch ./style/scss/main.scss ./style/css/style.css"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./style/scss/main.scss ./style/css/style.css"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.1"
+  }
 }

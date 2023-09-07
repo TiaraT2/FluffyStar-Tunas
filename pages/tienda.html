@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda | Fluffy Star</title>
+    <link rel="shortcut icon" href="../img/iconlogo.png" type="image/x-icon">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="../style/css/style.css">
+</head>
+<body>
+    <header>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../index.html"><img src="../img/logodelatienda.png" alt="Tu Logo"></a>
+        </div>
+        <div class="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="menu">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="registrarse.html">Registrarse | Iniciar sesión</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+        </ul>
+    </nav>
+
+    <!-- Barra de búsqueda (fuera del menú) -->
+    <div class="search-bar">
+        <input type="text" placeholder="Buscar..." id="busquedaInput">
+        <button onclick="buscarProductos()">Buscar</button>
+    </div>
+    </header>
+    <main>
+        <div class="peluches" id="productos">
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/Zorro grande.jpg" alt="peluche de zorro grande">
+            <h2>Zorro grande</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 5000$</p>
+            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Zorro G", "precio": 5000}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/zorronegromediano.JPG" alt="peluche de zorro negro mediano">
+            <h2>Zorro negro mediano</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 3125$</p>
+            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Zorro negro M", "precio": 3125}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class=" border border-secondary" src="../img/zorroblancogrande.jpg" alt="peluche de zorro blanco grande">
+            <h2>Zorro blanco grande</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 5000$</p>
+            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Zorro blanco G", "precio": 5000}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/zorroblancomediano.jpg" alt="peluche de zorro blanco mediano">
+            <h2>Zorro blanco mediano</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 3125$</p>
+            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Zorro blanco M", "precio": 3125}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/cerdorosa.jpg" alt="peluche de cerdo rosa">
+            <h2>Cerdo rosa grande</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 3679$</p>
+            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Cerdo rosa G", "precio": 3679}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/cuervonegro.webp" alt="peluche de cuervo">
+            <h2>Cuervo negro mediano</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 2910$</p>
+            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Cuervo negro M", "precio": 2910}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/ardilla.jpeg" alt="peluche de ardilla">
+            <h2>Ardilla mediana</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 2739$</p>
+            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Ardilla M", "precio": 2739}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/dragonchino.jpg" alt="peluche de dragon chino">
+            <h2>Dragón chino mediano</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 4571$</p>
+            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Dragón chino", "precio": 4571}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        </div>
+        <div class="carritoPosicion">
+            <div class="carritoEstetica">    
+            <h1>Carrito</h1>
+            <div id="carritoLista">
+            </div>
+            <p>Total: $<span id="total">0</span></p>
+            <button class="btn" onclick="confirmarCompra()">Confirmar Compra</button>
+            <button class="btn borrar" onclick="borrarCarrito()">Borrar Carrito</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+      <div class="footer-container-registro">
+        <div class="social-media">
+          <a href="http://www.instagram.com" target="_blank">
+            <img class="red-social-logo" width="20" src="../img/instagramlogo.png" alt="logo de instagram" />
+          <p>Instagram</p>
+         </a>
+         <a href="http://www.facebook.com" target="_blank">
+          <img class="red-social-logo" width="25" src="../img/facebooklogo.png" alt="logo de facebook" />
+          <p>Facebook</p>
+          </a>
+          <div class="contacto">
+          <img width="25" src="../img/whatsapplogo.png" alt="logo de whatsapp" />
+          <p>Contacto: +54 11 1234-5678 (Argentina)</p>
+        </div>
+          <div class="contacto">
+          <img width="20" src="../img/gmaillogo.png" alt="logo de gmail">
+          <p>gmailfalso123@gmail.com</p>
+        </div>
+        </div>   
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../JS/script.js"></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>

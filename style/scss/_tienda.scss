@@ -1,0 +1,36 @@
+.product {
+  margin: 15px;
+  h2 {
+    font-family: $font-family-base;
+    color: $ColorPrincipal;
+    font-size: 25px;
+    text-decoration: underline;
+  }
+  p {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+}
+
+.carritoEstetica {
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  background-color: $ColorFondo;
+  border-radius: 2%;
+  margin-top: 30px;
+  h1 {
+    color: $ColorPrincipal;
+    font-family: $font-family-base;
+    font-size: 50px;
+    text-decoration: underline;
+  }
+  p {
+    font-size: 30px;
+    text-decoration: underline;
+  }
+  .borrar{margin: 15px;}
+}
+

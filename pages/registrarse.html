@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión | Fluffy Star</title>
+    <link rel="shortcut icon" href="../img/iconlogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="../style/css/style.css">
+</head>
+<body>
+  <header>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../index.html"><img src="../img/logodelatienda.png" alt="Tu Logo"></a>
+        </div>
+        <div class="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="menu">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="registrarse.html">Registrarse | Iniciar sesión</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+        </ul>
+    </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="col-12 text-center align-self-center py-5">
+            <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                <h6 class="mb-0 pb-3"><span>Entrar </span><span>Registrarse</span></h6>
+                <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+                <label for="reg-log"></label>
+                <div class="card-3d-wrap mx-auto">
+                    <div class="card-3d-wrapper">
+                        <div class="card-front">
+                            <div class="center-wrap">
+                                <div class="section text-center">
+                                    <h4 class="mb-4 pb-3" style="color: #465375;">Entrar</h4>
+                                    <div class="form-group">
+                                        <input type="email" class="form-style" id="emailLogin" placeholder="Email">
+                                        <i class="input-icon uil uil-at"></i>
+                                    </div>	
+                                    <div class="form-group mt-2">
+                                        <input type="password" class="form-style" id="passwordLogin" placeholder="Password">
+                                        <i class="input-icon uil uil-lock-alt"></i>
+                                    </div>
+                                    <button id="loginButton" class="btn mt-4">Entrar</button>
+                                    <p class="mb-0 mt-4 text-center"><a href="#" class="link">¿Olvidaste tu contraseña?</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="center-wrap">
+                                <div class="section text-center">
+                                    <h4 class="mb-3 pb-3" style="color: #465375;">Registrarse</h4>
+                                    <div class="form-group">
+                                        <input type="text" class="form-style" id="fullName" placeholder="Nombre completo">
+                                        <i class="input-icon uil uil-user"></i>
+                                    </div>	
+                                    <div class="form-group mt-2">
+                                        <input type="tel" class="form-style" id="phoneNumber" placeholder="Número de celular">
+                                        <i class="input-icon uil uil-phone"></i>
+                                    </div>	
+                                    <div class="form-group mt-2">
+                                        <input type="email" class="form-style" id="emailRegister" placeholder="Email">
+                                        <i class="input-icon uil uil-at"></i>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <input type="password" class="form-style" id="passwordRegister" placeholder="Password">
+                                        <i class="input-icon uil uil-lock-alt"></i>
+                                    </div>
+                                    <button id="registerButton" class="btn mt-4">Registrarse</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    <footer>
+      <div class="footer-container-registro">
+        <div class="social-media">
+          <a href="http://www.instagram.com" target="_blank">
+            <img class="red-social-logo" width="20" src="../img/instagramlogo.png" alt="logo de instagram" />
+          <p>Instagram</p>
+         </a>
+         <a href="http://www.facebook.com" target="_blank">
+          <img class="red-social-logo" width="25" src="../img/facebooklogo.png" alt="logo de facebook" />
+          <p>Facebook</p>
+          </a>
+          <div class="contacto">
+          <img width="25" src="../img/whatsapplogo.png" alt="logo de whatsapp" />
+          <p>Contacto: +54 11 1234-5678 (Argentina)</p>
+        </div>
+          <div class="contacto">
+          <img width="20" src="../img/gmaillogo.png" alt="logo de gmail">
+          <p>gmailfalso123@gmail.com</p>
+        </div>
+        </div>   
+    </footer>    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../JS/script.js"></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>

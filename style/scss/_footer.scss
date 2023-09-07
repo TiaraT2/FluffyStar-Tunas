@@ -1,0 +1,57 @@
+.footer-container {
+  align-items: center;
+  background-color: #959bbd;
+  position: static;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  .social-media {
+    a {
+      text-decoration: none;
+    }
+    p {
+      font-size: 20px;
+    }
+  }
+  .about-us {
+    text-align: center;
+    h3 {
+      font-family: "Just Another Hand", cursive;
+      font-size: 35px;
+      color: $ColorPrincipal;
+      text-decoration: underline;
+    }
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+.footer-container-registro {
+  background-color: #959bbd;
+  position: static;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  .social-media {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    a {
+      text-decoration: none;
+    }
+    p {
+      font-size: 20px;
+    }
+  }
+  .contacto {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .red-social-logo {
+    margin-left: 23px;
+  }
+}

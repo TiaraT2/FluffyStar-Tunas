@@ -1,0 +1,96 @@
+/* Estilo para la barra de navegación */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $ColorFondo;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.logo img {
+  max-width: 100px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: $ColorPrincipal;
+  font-weight: bold;
+  font-family: $font-family-base;
+  font-size: 20px;
+}
+
+/* Estilo para el ícono de hamburguesa */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px 0;
+}
+
+/* Estilo para la barra de búsqueda */
+.search-bar {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: center;
+}
+
+.search-bar input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  background-color: $ColorFondo;
+  color: $ColorPrincipal;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Estilo para el menú desplegable en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: $ColorFondo;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+}
