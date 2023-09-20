@@ -279,42 +279,29 @@ h6 span {
   box-shadow: 0 8px 24px 0 rgba(16, 39, 112, 0.2);
 }
 
-.banner-container {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.banner-image {
-  width: 100%;
-  height: auto;
-}
-
-.banner-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+.Padre {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
-
-.banner-container:hover .banner-overlay {
-  opacity: 1;
+.Padre .fondo {
+  width: 500px;
+  background-color: #959bbd;
+  border-radius: 2%;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
-
-.offer-text {
-  color: #fff;
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 20px;
+.Padre .fondo .interior {
+  padding: 20px;
+}
+.Padre .fondo .interior h1 {
+  padding: 10px;
+  text-decoration: underline;
+  color: #465375;
+  font-size: 40px;
+}
+.Padre .fondo .interior p {
+  font-size: 25px;
 }
 
 /* Estilo para la barra de navegación */
