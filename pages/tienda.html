@@ -39,64 +39,6 @@
     </div>
     </header>
     <main>
-        <div class="peluches" id="productos">
-        <div class="product">
-            <img width="250" class="border border-secondary" src="../img/Zorro grande.jpg" alt="peluche de zorro grande">
-            <h2>Zorro grande</h2>
-            <p>Descripción del Producto 1</p>
-            <p>Precio: 5000$</p>
-            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Zorro G", "precio": 5000}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
-        </div>
-        <div class="product">
-            <img width="250" class="border border-secondary" src="../img/zorronegromediano.JPG" alt="peluche de zorro negro mediano">
-            <h2>Zorro negro mediano</h2>
-            <p>Descripción del Producto 1</p>
-            <p>Precio: 3125$</p>
-            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Zorro negro M", "precio": 3125}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
-        </div>
-        <div class="product">
-            <img width="250" class=" border border-secondary" src="../img/zorroblancogrande.jpg" alt="peluche de zorro blanco grande">
-            <h2>Zorro blanco grande</h2>
-            <p>Descripción del Producto 1</p>
-            <p>Precio: 5000$</p>
-            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Zorro blanco G", "precio": 5000}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
-        </div>
-        <div class="product">
-            <img width="250" class="border border-secondary" src="../img/zorroblancomediano.jpg" alt="peluche de zorro blanco mediano">
-            <h2>Zorro blanco mediano</h2>
-            <p>Descripción del Producto 1</p>
-            <p>Precio: 3125$</p>
-            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Zorro blanco M", "precio": 3125}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
-        </div>
-        <div class="product">
-            <img width="250" class="border border-secondary" src="../img/cerdorosa.jpg" alt="peluche de cerdo rosa">
-            <h2>Cerdo rosa grande</h2>
-            <p>Descripción del Producto 1</p>
-            <p>Precio: 3679$</p>
-            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Cerdo rosa G", "precio": 3679}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
-        </div>
-        <div class="product">
-            <img width="250" class="border border-secondary" src="../img/cuervonegro.webp" alt="peluche de cuervo">
-            <h2>Cuervo negro mediano</h2>
-            <p>Descripción del Producto 1</p>
-            <p>Precio: 2910$</p>
-            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Cuervo negro M", "precio": 2910}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
-        </div>
-        <div class="product">
-            <img width="250" class="border border-secondary" src="../img/ardilla.jpeg" alt="peluche de ardilla">
-            <h2>Ardilla mediana</h2>
-            <p>Descripción del Producto 1</p>
-            <p>Precio: 2739$</p>
-            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Ardilla M", "precio": 2739}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
-        </div>
-        <div class="product">
-            <img width="250" class="border border-secondary" src="../img/dragonchino.jpg" alt="peluche de dragon chino">
-            <h2>Dragón chino mediano</h2>
-            <p>Descripción del Producto 1</p>
-            <p>Precio: 4571$</p>
-            <button class="btn" id="agregarAlCarrito" data-producto='{"nombre": "Dragón chino", "precio": 4571}' onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
-        </div>
-        </div>
         <div class="carritoPosicion">
             <div class="carritoEstetica">    
             <h1>Carrito</h1>
@@ -106,6 +48,64 @@
             <button class="btn" onclick="confirmarCompra()">Confirmar Compra</button>
             <button class="btn borrar" onclick="borrarCarrito()">Borrar Carrito</button>
             </div>
+        </div>
+        <div class="peluches" id="productos">
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/Zorro grande.jpg" alt="peluche de zorro grande">
+            <h2>Zorro grande</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 5000$</p>
+            <button class="btn" data-id="1" onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/zorronegromediano.JPG" alt="peluche de zorro negro mediano">
+            <h2>Zorro negro mediano</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 3125$</p>
+            <button class="btn" data-id="2" onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class=" border border-secondary" src="../img/zorroblancogrande.jpg" alt="peluche de zorro blanco grande">
+            <h2>Zorro blanco grande</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 5000$</p>
+            <button class="btn" data-id="3" onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/zorroblancomediano.jpg" alt="peluche de zorro blanco mediano">
+            <h2>Zorro blanco mediano</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 3125$</p>
+            <button class="btn" data-id="4" onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/cerdorosa.jpg" alt="peluche de cerdo rosa">
+            <h2>Cerdo rosa grande</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 3679$</p>
+            <button class="btn" data-id="5" onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/cuervonegro.webp" alt="peluche de cuervo">
+            <h2>Cuervo negro mediano</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 2910$</p>
+            <button class="btn" data-id="6" onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/ardilla.jpeg" alt="peluche de ardilla">
+            <h2>Ardilla mediana</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 2739$</p>
+            <button class="btn" data-id="7" onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img width="250" class="border border-secondary" src="../img/dragonchino.jpg" alt="peluche de dragon chino">
+            <h2>Dragón chino mediano</h2>
+            <p>Descripción del Producto 1</p>
+            <p>Precio: 4571$</p>
+            <button class="btn" data-id="8" onclick="agregarAlCarrito(this)">Agregar al Carrito</button>
+        </div>
         </div>
     </main>
     <footer>
