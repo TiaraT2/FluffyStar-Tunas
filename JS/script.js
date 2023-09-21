@@ -5,7 +5,7 @@ menuIcon.addEventListener("click", () => {
   menu.classList.toggle("active");
 });
 
-document.getElementById("loginButton") .addEventListener("click", function () {
+document.getElementById("loginButton").addEventListener("click", function () {
   var email = document.getElementById("emailLogin").value;
   var password = document.getElementById("passwordLogin").value;
 
@@ -74,56 +74,75 @@ document
     }
   });
 
-  function buscarProductos() {
-    const input = document.getElementById("busquedaInput");
-    const query = input.value.toLowerCase();
-    const productos = document.querySelectorAll("#productos .product");
+function buscarProductos() {
+  const input = document.getElementById("busquedaInput");
+  const query = input.value.toLowerCase();
+  const productos = document.querySelectorAll("#productos .product");
 
-    productos.forEach((producto) => {
-        const nombre = producto.querySelector("h2").textContent.toLowerCase();
-        if (nombre.includes(query)) {
-            producto.style.display = "block";
-        } else {
-            producto.style.display = "none";
-        }
-    });
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  cargarProductos();
-  mostrarCarrito();
-});
-
-async function cargarProductos() {
-    try {
-        const response = await fetch('../JSON/productos.json');
-        if (!response.ok) {
-            throw new Error('Error al cargar productos.');
-        }
-        const productos = await response.json();
-        localStorage.setItem("productos", JSON.stringify(productos));
-    } catch (error) {
-        console.error(error);
+  productos.forEach((producto) => {
+    const nombre = producto.querySelector("h2").textContent.toLowerCase();
+    if (nombre.includes(query)) {
+      producto.style.display = "block";
+    } else {
+      producto.style.display = "none";
     }
+  });
 }
+
+async function obtenerProductos() {
+  try {
+    const respuesta = await fetch("../JSON/productos.json");
+
+    if (!respuesta.ok) {
+      throw new Error(
+        `Error al obtener el archivo JSON. Código de estado: ${respuesta.status}`
+      );
+    }
+
+    const productos = await respuesta.json();
+    return productos;
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+    return null;
+  }
+}
+async function main() {
+  try {
+    const productos = await obtenerProductos();
+
+    if (productos) {
+      console.log("Productos obtenidos:", productos);
+
+      localStorage.setItem("productos", JSON.stringify(productos));
+    } else {
+      console.log("No se pudieron obtener los productos.");
+    }
+  } catch (error) {
+    console.error("Error al obtener los productos:", error);
+  }
+}
+
+main();
 
 function agregarAlCarrito(btn) {
-  const productId = btn.getAttribute('data-id');
+  const productId = parseInt(btn.getAttribute("data-id"));
+
   const productos = JSON.parse(localStorage.getItem("productos")) || [];
 
-  const producto = productos.find(p => p.id === productId);
+  const producto = productos.find((p) => p.id === productId);
 
   if (producto) {
-      agregarProductoAlCarrito(producto);
+    agregarProductoAlCarrito(producto);
   } else {
-      console.error("Producto no encontrado.");
+    console.error("Producto no encontrado.");
   }
 }
 
 function agregarProductoAlCarrito(producto) {
+  const { id, nombre, precio } = producto;
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  carrito.push(producto);
+  carrito.push({ id, nombre, precio });
   localStorage.setItem("carrito", JSON.stringify(carrito));
   mostrarCarrito();
 }
@@ -136,15 +155,21 @@ function mostrarCarrito() {
 
   carritoLista.innerHTML = "";
   carrito.forEach((producto, index) => {
-      if (producto && typeof producto === 'object' && producto.hasOwnProperty('precio')) {
-          total += parseFloat(producto.precio);
-          carritoLista.innerHTML += `
+    if (
+      producto &&
+      typeof producto === "object" &&
+      producto.hasOwnProperty("precio")
+    ) {
+      total += parseFloat(producto.precio);
+      carritoLista.innerHTML += `
               <div>
-                  <p>${producto.nombre} $${parseFloat(producto.precio).toFixed(2)}</p>
+                  <p>${producto.nombre} $${parseFloat(producto.precio).toFixed(
+        0
+      )}</p>
                   <button class="btn" onclick="borrarProducto(${index})">Borrar</button>
               </div>
           `;
-      }
+    }
   });
 
   totalSpan.textContent = total.toFixed(2);
@@ -164,12 +189,38 @@ function borrarCarrito() {
 
 function confirmarCompra() {
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  let total = 0;
+
+  carrito.forEach((producto) => {
+    if (
+      producto &&
+      typeof producto === "object" &&
+      producto.hasOwnProperty("precio")
+    ) {
+      total += parseFloat(producto.precio);
+    }
+  });
 
   if (carrito.length === 0) {
-      Swal.fire("El carrito está vacío. Agrega productos antes de confirmar la compra.");
+    Swal.fire(
+      "El carrito está vacío. Agrega productos antes de confirmar la compra."
+    );
   } else {
-      Swal.fire("Compra confirmada. Gracias por su compra.");
-      localStorage.removeItem("carrito");
-      mostrarCarrito();
+    Swal.fire({
+      title: "Confirmar compra",
+      text: `El total es de: $${total.toFixed(0)}`,
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Sí, continuar",
+      cancelButtonText: "No, cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Compra confirmada. Gracias por su compra.");
+        localStorage.removeItem("carrito");
+        mostrarCarrito();
+      } else {
+        Swal.fire("Compra cancelada.");
+      }
+    });
   }
 }

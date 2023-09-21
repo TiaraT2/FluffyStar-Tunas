@@ -1,43 +1,43 @@
 [
     {
+      "id": 0,
       "nombre": "Zorro G",
-      "precio": 5000,
-      "id": 1
+      "precio": 5000
     },
     {
+      "id": 1,
       "nombre": "Zorro negro M",
-      "precio": 3125,
-      "id": 2
+      "precio": 3125
     },
     {
+      "id": 2,
       "nombre": "Zorro blanco G",
-      "precio": 5000,
-      "id": 3
+      "precio": 5000
     },
     {
+      "id": 3,
       "nombre": "Zorro blanco M",
-      "precio": 3125,
-      "id": 4
+      "precio": 3125
     },
     {
+      "id": 4,
       "nombre": "Cerdo rosa G",
-      "precio": 3679,
-      "id": 5
+      "precio": 3679
     },
     {
+      "id": 5,
       "nombre": "Cuervo negro M",
-      "precio": 2910,
-      "id": 6
+      "precio": 2910
     },
     {
+      "id": 6,
       "nombre": "Ardilla M",
-      "precio": 2739,
-      "id": 7
+      "precio": 2739
     },
     {
+      "id": 7,
       "nombre": "Dragón chino",
-      "precio": 4571,
-      "id": 8
+      "precio": 4571
     }
   ]
   
